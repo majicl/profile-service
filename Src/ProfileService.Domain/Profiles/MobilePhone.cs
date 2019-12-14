@@ -3,7 +3,7 @@ namespace ProfileService.Domain.Profiles
 {
     public class MobilePhone
     {
-        public int CountryCode { get; set; }
-        public int Number { get; set; }
+        public string CountryCode { get; set; }
+        public string Number { get; set; }
     }
 }

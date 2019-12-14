@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Profiles\" />
+    <Folder Include="Profiles\Commands\" />
+    <Folder Include="Errors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProfileService.Domain\ProfileService.Domain.csproj" />
+  </ItemGroup>
 </Project>
