@@ -14,12 +14,18 @@ namespace ProfileService.Domain.Profiles
         public MobilePhone MobilePhone { get; private set; }
 
         public UserProfile() { }
-        public UserProfile(string _SSN, string email, MobilePhone mobilePhone, Customer customer)
+        public UserProfile(string _SSN, string email, MobilePhone mobilePhone, Customer customer, Guid id = default(Guid))
+        {
+            Modify(_SSN, email, mobilePhone, customer, id);
+        }
+
+        public void Modify(string _SSN, string email, MobilePhone mobilePhone, Customer customer, Guid id = default(Guid))
         {
             SSN = _SSN;
             Email = email;
             MobilePhone = mobilePhone;
             Customer = customer;
+            Id = id;
         }
     }
 }
