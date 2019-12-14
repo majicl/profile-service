@@ -12,7 +12,7 @@ namespace ProfileService.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProfileController: ControllerBase
+    public class ProfileController : ControllerBase
     {
         private IMediator _mediator { get; }
 
@@ -37,7 +37,7 @@ namespace ProfileService.API.Controllers
             return result;
         }
 
-        [HttpPut]
+        [HttpDelete]
         [ProducesResponseType(typeof(Unit), (int)HttpStatusCode.OK)]
         public async Task<Unit> Delete([FromBody]DeleteProfile.Command command)
         {
@@ -45,11 +45,11 @@ namespace ProfileService.API.Controllers
             return result;
         }
 
-        [HttpPut]
+        [HttpGet("{customerId}")]
         [ProducesResponseType(typeof(ProfileDto), (int)HttpStatusCode.OK)]
-        public async Task<ProfileDto> Delete([FromBody]GetProfileByCustonmerId.Query query)
+        public async Task<ProfileDto> Get(string customerId)
         {
-            var result = await _mediator.Send(query);
+            var result = await _mediator.Send(new GetProfileByCustonmerId.Query { CustomerId = new System.Guid(customerId) });
             return result;
         }
     }
