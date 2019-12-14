@@ -8,6 +8,7 @@
     <Folder Include="Profiles\" />
     <Folder Include="Profiles\Commands\" />
     <Folder Include="Errors\" />
+    <Folder Include="Profiles\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
