@@ -13,6 +13,7 @@ namespace ProfileService.Domain.Profiles
         public string Email { get; private set; }
         public MobilePhone MobilePhone { get; private set; }
 
+        public UserProfile() { }
         public UserProfile(string _SSN, string email, MobilePhone mobilePhone, Customer customer)
         {
             SSN = _SSN;

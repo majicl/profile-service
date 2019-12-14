@@ -21,12 +21,16 @@ namespace ProfileService.Persistence.Profiles
                 .HasMaxLength(100);
 
             builder
-             .Property(_ => _.MobilePhone.Number)
-             .HasMaxLength(10);
+                .OwnsOne(o => o.MobilePhone)
+                .Property(_ => _.Number)
+                .HasMaxLength(10);
 
             builder
-               .Property(_ => _.MobilePhone.CountryCode)
-               .HasMaxLength(4);
+                .OwnsOne(o => o.MobilePhone)
+                .Property(_ => _.CountryCode)
+                .HasMaxLength(4);
+
+
         }
     }
 }

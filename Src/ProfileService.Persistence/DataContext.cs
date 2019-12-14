@@ -9,6 +9,7 @@ namespace ProfileService.Persistence
     {
         public DbSet<UserProfile> Profiles { get; set; }
 
+        public DataContext() { }
         public DataContext(DbContextOptions options) : base(options)
         {
         }
