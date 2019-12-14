@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileService.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileService.Application", "Src\ProfileService.Application\ProfileService.Application.csproj", "{32099DEA-3945-4EA4-8FEA-74753ACCF95E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileService.Persistence", "Src\ProfileService.Persistence\ProfileService.Persistence.csproj", "{BAA3119F-39EB-4FEC-84C9-35B482D1B732}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +31,15 @@ Global
 		{32099DEA-3945-4EA4-8FEA-74753ACCF95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32099DEA-3945-4EA4-8FEA-74753ACCF95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32099DEA-3945-4EA4-8FEA-74753ACCF95E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAA3119F-39EB-4FEC-84C9-35B482D1B732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA3119F-39EB-4FEC-84C9-35B482D1B732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA3119F-39EB-4FEC-84C9-35B482D1B732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA3119F-39EB-4FEC-84C9-35B482D1B732}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{20AFB5A1-888C-4AB3-9CB5-E1CD4616B4FE} = {02FDA420-91E3-45AC-ADD4-085817ED16D4}
 		{8A48EEAB-D5E1-4DEB-8336-257098728FCE} = {02FDA420-91E3-45AC-ADD4-085817ED16D4}
 		{32099DEA-3945-4EA4-8FEA-74753ACCF95E} = {02FDA420-91E3-45AC-ADD4-085817ED16D4}
+		{BAA3119F-39EB-4FEC-84C9-35B482D1B732} = {02FDA420-91E3-45AC-ADD4-085817ED16D4}
 	EndGlobalSection
 EndGlobal
