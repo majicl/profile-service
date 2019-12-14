@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Profiles\" />
+    <Folder Include="Users\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProfileService.Domain\ProfileService.Domain.csproj" />

@@ -59,7 +59,7 @@ namespace ProfileService.Persistence.Profiles
                 throw new Exception($"The customer's profile with ID: {userProfile.Customer.Id} not found.");
             }
 
-            _context.Attach(userProfile);
+            _context.Entry(userProfile).State = EntityState.Modified;
             _context.Profiles.Update(userProfile);
             return await _context.SaveChangesAsync();
         }

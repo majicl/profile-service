@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProfileService.Domain.Profiles;
+using ProfileService.Domain.Users;
 
 namespace ProfileService.Persistence.Profiles
 {
@@ -29,6 +30,11 @@ namespace ProfileService.Persistence.Profiles
                 .OwnsOne(o => o.MobilePhone)
                 .Property(_ => _.CountryCode)
                 .HasMaxLength(4);
+
+            builder
+                .HasOne(_ => _.Customer)
+                .WithOne(_=> _.Profile)
+                .HasForeignKey<Customer>(e => e.Id); 
 
 
         }
