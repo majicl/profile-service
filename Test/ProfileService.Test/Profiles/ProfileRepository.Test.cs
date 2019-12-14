@@ -155,15 +155,15 @@ namespace ProfileService.Test.Profiles
 
                 var _profileRepository = new ProfileRepository(context);
                 var profileId = await context.Profiles.Select(_ => _.Id).FirstAsync();
-                profile.Modify("198512127997",  "hi@gmail.com", new MobilePhone { CountryCode="47", Number="90874532" }, profile.Customer, profileId);
+                profile.Modify("198512127997", "hi@gmail.com", new MobilePhone { CountryCode = "47", Number = "90874532" }, profile.Customer, profileId);
 
                 // Act
                 var result = await _profileRepository.ModifyAsync(profile, CancellationToken.None);
 
                 // Assert
                 Assert.True(result > 0);
-                Assert.Equal(profile.SSN , "198512127997");
-                Assert.Equal(profile.Email, "hi@gmail.com");
+                Assert.True(profile.SSN == "198512127997");
+                Assert.True(profile.Email == "hi@gmail.com");
             }
         }
 
@@ -182,7 +182,7 @@ namespace ProfileService.Test.Profiles
                 // Act
                 // Assert
                 await Assert.ThrowsAsync<Exception>(
-                () => _profileRepository.DeleteAsyncCustomerId(Guid.NewGuid() , CancellationToken.None));
+                () => _profileRepository.DeleteAsyncCustomerId(Guid.NewGuid(), CancellationToken.None));
             }
         }
 
