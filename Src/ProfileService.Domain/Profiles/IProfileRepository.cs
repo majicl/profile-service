@@ -8,7 +8,7 @@ namespace ProfileService.Domain.Profiles
     {
         Task<UserProfile> GetCustomerProfileByIdAsync(Guid id, CancellationToken cancellationToken);
         Task<int> DeleteAsyncCustomerId(Guid id, CancellationToken cancellationToken);
-        Task<int> CreateAsync(UserProfile userProfile, CancellationToken cancellationToken;
+        Task<int> CreateAsync(UserProfile userProfile, CancellationToken cancellationToken);
         Task<int> ModifyAsync(UserProfile userProfile, CancellationToken cancellationToken);
     }
 }
