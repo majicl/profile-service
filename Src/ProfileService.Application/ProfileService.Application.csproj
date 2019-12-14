@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
     <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProfileService.Domain\ProfileService.Domain.csproj" />
