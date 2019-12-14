@@ -9,13 +9,13 @@ namespace ProfileService.Application.Profiles.Commands
 {
     public class DeleteProfile
     {
-        public class Command : IRequest
+        public class DeleteCommand : IRequest
         {
             // should be provided with a Identity-Provider 
             public Guid CustomerId { get; set; }
         }
 
-        public class Handler : IRequestHandler<Command>
+        public class Handler : IRequestHandler<DeleteCommand>
         {
             private readonly IProfileRepository _profileRepository;
             public Handler(IProfileRepository profileRepository)
@@ -23,7 +23,7 @@ namespace ProfileService.Application.Profiles.Commands
                 _profileRepository = profileRepository;
             }
 
-            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(DeleteCommand request, CancellationToken cancellationToken)
             {
                 var success = await _profileRepository.DeleteAsyncCustomerId(request.CustomerId, cancellationToken) > 0;
 

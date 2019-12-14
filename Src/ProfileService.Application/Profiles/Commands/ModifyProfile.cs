@@ -10,7 +10,7 @@ namespace ProfileService.Application.Profiles.Commands
 {
     public class ModifyProfile
     {
-        public class Command : IRequest
+        public class ModifyCommand : IRequest
         {
             // should be provided with a Identity-Provider 
             public Guid CustomerId { get; set; }
@@ -22,7 +22,7 @@ namespace ProfileService.Application.Profiles.Commands
             public Guid Id { get; set; }
         }
 
-        public class Handler : IRequestHandler<Command>
+        public class Handler : IRequestHandler<ModifyCommand>
         {
             private readonly IProfileRepository _profileRepository;
             public Handler(IProfileRepository profileRepository)
@@ -30,7 +30,7 @@ namespace ProfileService.Application.Profiles.Commands
                 _profileRepository = profileRepository;
             }
 
-            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(ModifyCommand request, CancellationToken cancellationToken)
             {
                 var profile = new UserProfile(
                     request.SSN,
@@ -52,7 +52,7 @@ namespace ProfileService.Application.Profiles.Commands
             }
         }
 
-        public class ModifyProfileValidator : AbstractValidator<Command>
+        public class ModifyProfileValidator : AbstractValidator<ModifyCommand>
         {
             public ModifyProfileValidator()
             {

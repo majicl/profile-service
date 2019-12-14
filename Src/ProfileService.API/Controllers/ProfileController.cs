@@ -23,15 +23,15 @@ namespace ProfileService.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(Unit), (int)HttpStatusCode.OK)]
-        public async Task<Unit> Post([FromBody]CreateProfile.Command command)
+        public async Task<Unit> Post([FromBody]CreateProfile.CreateCommand command)
         {
             var result = await _mediator.Send(command);
             return result;
         }
 
-        [HttpPut]
+        [HttpPut()]
         [ProducesResponseType(typeof(Unit), (int)HttpStatusCode.OK)]
-        public async Task<Unit> Put([FromBody]ModifyProfile.Command command)
+        public async Task<Unit> Put([FromBody]ModifyProfile.ModifyCommand command)
         {
             var result = await _mediator.Send(command);
             return result;
@@ -39,7 +39,7 @@ namespace ProfileService.API.Controllers
 
         [HttpDelete]
         [ProducesResponseType(typeof(Unit), (int)HttpStatusCode.OK)]
-        public async Task<Unit> Delete([FromBody]DeleteProfile.Command command)
+        public async Task<Unit> Delete([FromBody]DeleteProfile.DeleteCommand command)
         {
             var result = await _mediator.Send(command);
             return result;

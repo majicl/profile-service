@@ -45,11 +45,31 @@ namespace ProfileService.API
             services.AddTransient<IProfileRepository, ProfileRepository>();
             services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateProfileValidator>());
             services.AddMediatR(typeof(CreateProfile).GetTypeInfo().Assembly);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v0.1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Version = "v0.1",
+                    Title = "Profile Service API",
+                    Description = "Profile Service API to take care of the customers' profile"
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.DocumentTitle = "Profile Service API Documentation";
+                c.SwaggerEndpoint("/swagger/v0.1/swagger.json", "Profile Service API v0.1");
+                c.RoutePrefix = string.Empty;
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
