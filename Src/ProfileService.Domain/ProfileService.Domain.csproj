@@ -10,6 +10,5 @@
   <ItemGroup>
     <Folder Include="Profiles\" />
     <Folder Include="Users\" />
-    <Folder Include="SeedWork\" />
   </ItemGroup>
 </Project>
