@@ -18,21 +18,21 @@ namespace ProfileService.Persistence.Profiles
         public async Task<int> CreateAsync(UserProfile userProfile, CancellationToken cancellationToken)
         {
             var duplicated = await _context.Profiles
-                  .Where(x => x.Customer.Id == userProfile.Customer.Id).AnyAsync();
+                  .Where(x => x.Customer.Id == userProfile.Customer.Id).AnyAsync(cancellationToken);
 
             if (duplicated)
             {
                 throw new Exception($"The customer's profile with ID: {userProfile.Customer.Id} is already exist.");
             }
 
-            await _context.Profiles.AddAsync(userProfile);
-            return await _context.SaveChangesAsync();
+            await _context.Profiles.AddAsync(userProfile, cancellationToken);
+            return await _context.SaveChangesAsync(cancellationToken);
         }
 
         public async Task<int> DeleteAsyncCustomerId(Guid id, CancellationToken cancellationToken)
         {
             var profileExist = await _context.Profiles
-                  .Where(x => x.Customer.Id == id).AnyAsync();
+                  .Where(x => x.Customer.Id == id).AnyAsync(cancellationToken);
 
             if (profileExist == false)
             {
@@ -40,19 +40,19 @@ namespace ProfileService.Persistence.Profiles
             }
 
             _context.Profiles.Remove(_context.Profiles.Find(id));
-            return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync(cancellationToken);
         }
 
         public async Task<UserProfile> GetCustomerProfileByIdAsync(Guid id, CancellationToken cancellationToken)
         {
             return await _context.Profiles
-                 .Where(x => x.Customer.Id == id).FirstOrDefaultAsync();
+                 .Where(x => x.Customer.Id == id).FirstOrDefaultAsync(cancellationToken);
         }
 
         public async Task<int> ModifyAsync(UserProfile userProfile, CancellationToken cancellationToken)
         {
             var profileExist = await _context.Profiles
-                .Where(x => x.Customer.Id == userProfile.Customer.Id).AnyAsync();
+                .Where(x => x.Customer.Id == userProfile.Customer.Id).AnyAsync(cancellationToken);
 
             if (profileExist == false)
             {
@@ -61,7 +61,7 @@ namespace ProfileService.Persistence.Profiles
 
             _context.Entry(userProfile).State = EntityState.Modified;
             _context.Profiles.Update(userProfile);
-            return await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }
